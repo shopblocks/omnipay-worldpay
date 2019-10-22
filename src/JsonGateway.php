@@ -105,6 +105,8 @@ class JsonGateway extends AbstractGateway
      */
     public function purchase(array $parameters = array())
     {
+        $parameters['amount'] /= 100;
+
         return $this->createRequest('\Omnipay\WorldPay\Message\JsonPurchaseRequest', $parameters);
     }
 
